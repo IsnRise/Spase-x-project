@@ -7,8 +7,6 @@ import helper_script
 from dotenv import load_dotenv
 
 
-def send_one_file(args_file, args_path, bot, chat_id):
-    helper_script.send_picture(bot, args_path, args_file, chat_id)
 
 
 def send_random_photo(args_path, bot, chat_id):

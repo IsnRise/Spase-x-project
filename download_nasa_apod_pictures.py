@@ -6,11 +6,11 @@ import argparse
 from dotenv import load_dotenv
 
 
-def fetch_nasa_apod_pictures(args_path, args_count, nasa_token):
-    nasa_url = "https://api.nasa.gov/planetary/apot"    
+def fetch_nasa_apod_pictures(args_path, nasa_pictures_count, nasa_token):
+    nasa_url = "https://api.nasa.gov/planetary/apod"    
     params = {
         "api_key" : nasa_token,
-        "count" : args_count
+        "count" : nasa_pictures_count
     }
     nasa_apod_response = requests.get(nasa_url, params=params)    
     nasa_apod_response.raise_for_status()
@@ -30,11 +30,11 @@ def main():
     parser.add_argument("--count", default=40, help="количество картинок nasa_apod")
     parser.add_argument("--path", default = "all_images", help="в какую папку загружать картинки")    
     args = parser.parse_args()
-    args_count = args.count
-    args_path = args.path
+    nasa_pictures_count = args.count
+    pictures_path = args.path
     Path(args_path).mkdir(parents=True, exist_ok=True)
     try:
-        fetch_nasa_apod_pictures(args_path, args_count, nasa_token)    
+        fetch_nasa_apod_pictures(args_path, nasa_pictures_count, nasa_token)    
     except (requests.exceptions.HTTPError, requests.exceptions.JSONDecodeError):
         print("Вероятно, у Вас есть ошибка в ссылке")
 

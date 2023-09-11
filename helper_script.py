@@ -4,8 +4,8 @@ from urllib.parse import urlparse
 
 
 def get_picture_format(url):
-    parse = urlparse(url)
-    path = parse.path
+    picture_parse = urlparse(url)
+    path = picture_parse.path
     return os.path.splitext(path)[1]
 
 

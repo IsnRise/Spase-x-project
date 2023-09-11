@@ -9,7 +9,7 @@ def get_picture_format(url):
     return os.path.splitext(path)[1]
 
 
-def download_picture(response, link, params, path, filename):
+def download_picture(link, params, path, filename):
     response = requests.get(link, params=params)
     response.raise_for_status()
     with open(f"{path}/{filename}", 'wb') as file:

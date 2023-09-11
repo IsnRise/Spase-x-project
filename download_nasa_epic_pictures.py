@@ -21,8 +21,7 @@ def fetch_nasa_epic_pictures(args_path,  nasa_token):
         nasa_epic_picture_format = helper_script.get_picture_format(f"https://api.nasa.gov/EPIC/archive/natural/{nasa_epic_date}/png/{nasa_epic_name}.png")
         nasa_epic_link = f"https://api.nasa.gov/EPIC/archive/natural/{nasa_epic_date}/png/{nasa_epic_name}.png"
         nasa_epic_filename = f"nasa_epic_{number}{nasa_epic_picture_format}"
-        nasa_epic_params = {'nasa_token'}
-        helper_script.download_picture(nasa_epic_response, nasa_epic_params, nasa_epic_link, args_path, nasa_epic_filename)            
+        helper_script.download_picture(nasa_epic_response, params, nasa_epic_link, args_path, nasa_epic_filename)            
 
 
 def main():

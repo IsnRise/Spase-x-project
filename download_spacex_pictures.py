@@ -24,6 +24,7 @@ def main():
     launch_id = args.id
     args_path = args.path    
     Path(args_path).mkdir(parents=True, exist_ok=True)
+    fetch_spacex_launches(launch_id, args_path)
 
 
 if __name__ == "__main__":

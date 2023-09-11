@@ -35,8 +35,7 @@ def main():
     Path(args_path).mkdir(parents=True, exist_ok=True)
     try:
         fetch_nasa_apod_pictures(args_path, nasa_pictures_count, nasa_token)    
-    except (requests.exceptions.HTTPError, requests.exceptions.JSONDecodeError):
-        print("Вероятно, у Вас есть ошибка в ссылке")
+   
 
 if __name__ == "__main__":
     main()
